@@ -23,7 +23,7 @@ public class CityGen extends JFrame{
 	
 	public CityGen() {
 		pixels = new int[1024 * 1024];
-		City city = new City();
+		City city = new City(City.LARGE);
 		for (int i = 0; i < 1024; i++) {
 			for (int j = 0; j < 1024; j++) {
 				pixels[i * 1024 + j] = colorOf(city.valueAt(toCity(i), toCity(j)));
@@ -66,7 +66,10 @@ public class CityGen extends JFrame{
 			return Color.BLACK.getRGB();
 		}
 		case(City.HOUSE):{
-			return Color.GREEN.getRGB();
+			return Color.RED.getRGB();
+		}
+		case(City.SPECIAL):{
+			return Color.MAGENTA.getRGB();
 		}default:{
 			return Color.CYAN.getRGB();
 		}
